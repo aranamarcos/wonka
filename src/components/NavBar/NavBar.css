@@ -1,0 +1,18 @@
+header {
+    background-color: rgb(78,43,143);
+}
+
+h1 {
+    color: white;
+    margin: 0px;
+    margin-right: 2rem;
+}
+
+.nav-item {
+    cursor: pointer;
+    margin: 0px;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    font-size: small;
+    color: white;
+}

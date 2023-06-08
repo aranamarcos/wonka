@@ -1,0 +1,21 @@
+.cart-icon {
+    width: 2.5rem;
+}
+
+.cart-button {
+    display: flex;
+    padding: 0.3rem;
+    cursor: pointer;
+}
+
+.cart-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gold;
+    color: rgb(78,43,143);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
