@@ -1,0 +1,15 @@
+.cartItem_container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 5%;
+}
+
+.cartItem_desc {
+    margin: 0px;
+}
+
+.cartItem_img {
+    width: 120px;
+}

@@ -1,24 +1,40 @@
+import { collection, getDocs, query, where} from 'firebase/firestore'
+import { db } from '../../services/config'
 import { useState, useEffect } from "react"
-import ItemList from "../ItemList/ItemList";
-import { getAllProductos, getCategoryProductos } from "../../asyncmock"
 import { useParams } from "react-router-dom";
 
-const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
+import ItemList from "../ItemList/ItemList";
 
+import './ItemListContainer.css'
+
+
+const ItemListContainer = () => {
+
+  // Recibo por parametro URL
   const {idCategoria} = useParams();
 
-  useEffect(() => {
-    const funcionProductos = idCategoria ? getCategoryProductos : getAllProductos;
 
-    funcionProductos(idCategoria)
-      .then(resp => setProductos(resp))
-      .catch(err => console.log(err))
+  // Estados
+  const [productos, setProductos] = useState([]);
+
+
+  // UseEffect
+  useEffect(() => {
+
+    const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : collection(db, "productos");
+
+    getDocs(misProductos)
+      .then( res => {
+        setProductos(res.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+      })
+
   }, [idCategoria])
 
+
+  // Return
   return (
     <div>
-      <h2>{idCategoria || "productos"}</h2>
+      <h3 className="tituloCategoria">{idCategoria || "todos los productos"}</h3>
       <ItemList productos={productos}/>
     </div>
   )

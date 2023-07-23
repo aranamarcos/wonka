@@ -6,16 +6,15 @@
     display: flex;
     padding: 0.3rem;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.cart-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: gold;
-    color: rgb(78,43,143);
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+.widgetTotal {
+    padding: 0px 8px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(58, 13, 141);
+    border-radius: 20%;
 }
+
 

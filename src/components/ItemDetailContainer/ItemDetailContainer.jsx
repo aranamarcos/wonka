@@ -1,19 +1,34 @@
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '../../services/config'
 import { useState, useEffect } from "react"
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { getOneProductos } from "../../asyncmock"
 import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState(null);
+import ItemDetail from "../ItemDetail/ItemDetail";
 
+const ItemDetailContainer = () => {
+  
+    // Recibo por parametro URL
     const {idItem} = useParams();
 
-    useEffect(() => {
-        getOneProductos(idItem)
-            .then(resp => setProducto(resp))
-            .catch(err => console.log(err))
-    }, [idItem]);
 
+  // Estados
+  const [producto, setProducto] = useState(null);
+
+
+  // useEffect
+  useEffect(() => {
+
+    const nuevoDoc = doc(db, "productos", idItem);
+    
+    getDoc(nuevoDoc)
+      .then( res => {
+        setProducto({id: res.id, ...res.data()})
+      })
+
+  }, [idItem]);
+
+
+  // Return  
   return (
     <div>
         <ItemDetail {...producto}/>

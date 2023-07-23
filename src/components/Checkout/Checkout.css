@@ -1,0 +1,11 @@
+.checkout_title {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(78,43,143);
+}
+
+.checkout_total {
+    font-size: large;
+    font-weight: bold;
+    color: rgb(78,43,143);
+}

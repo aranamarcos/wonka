@@ -1,4 +1,15 @@
 .detailContainer {
-    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 5%;
+}
+
+.detailTextContainer {
+    max-width: 500px;
+}
+
+.itemDetail_precio {
+    font-size: large;
+    font-weight: bold;
 }
